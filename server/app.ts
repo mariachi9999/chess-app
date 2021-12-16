@@ -2,7 +2,7 @@ import express, { Router } from "express";
 import mongoose from "mongoose";
 // import * as dotenv from "dotenv";
 // dotenv.config();
-import { router } from "./routes/routes";
+import { router } from "./Core/ApplicationServices/routes/routes";
 
 const app = express();
 app.use(express.json());
