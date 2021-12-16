@@ -1,5 +1,5 @@
 import express from "express";
-import { PlayerModel } from "../database/schemas/models";
+import { PlayerModel } from "../database/models/playerModel";
 export const router = express.Router();
 
 // POST endpoint
