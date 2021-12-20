@@ -1,5 +1,5 @@
-import Game from "../model/IGame";
+import IGame from "../model/IGame";
 
 export default interface IRestartGame {
-  (game: Game): void;
+  (game: IGame): Promise<IGame>;
 }

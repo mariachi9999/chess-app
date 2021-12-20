@@ -1,12 +1,15 @@
 import IGame from "../../domain/model/IGame";
-import ILastMove from "../../domain/model/ILastMove";
-import IMove from "../../domain/model/IMovePiece";
-import { fieldConversion } from "./fieldConversion";
+import IMove from "../../domain/model/IMove";
+import IIsLegalMove from "../../domain/services/IIsLegalMove";
+import { fieldConversion } from "../utils/fieldConversion";
 
 const { Chess } = require("chess.js");
 
 // return true if is legal move, false is not
-export const isLegalMove = (game: IGame, move: IMove): Boolean => {
+export const isLegalMove: IIsLegalMove = (
+  game: IGame,
+  move: IMove
+): Boolean => {
   let table = new Chess(game.board.table);
   let legal_moves = table.moves({ square: fieldConversion(move.move.from) });
   let legal_moves_adj = legal_moves.map((cell: string) =>

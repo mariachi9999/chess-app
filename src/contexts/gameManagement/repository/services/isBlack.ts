@@ -1,5 +1,5 @@
-import IGame from "../../domain/model/IGame";
+import IIsBlack from "../../domain/services/IIsBlack";
 
-export const isBlack = (color: String) => {
+export const isBlack: IIsBlack = (color: String) => {
   return color === "b" ? true : false;
 };

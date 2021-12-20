@@ -1,5 +1,4 @@
-import IGame from "../../domain/model/IGame";
-import { returnPiece } from "./returnPiece";
+import { returnPiece } from "../utils/returnPieceName";
 
 export const validMoveMessage = (newBoard: { table: any; last_move: any }) => {
   let { color, from, to, flags, piece, san } = newBoard.last_move;

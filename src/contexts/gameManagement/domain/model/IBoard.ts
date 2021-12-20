@@ -1,7 +1,6 @@
-import ILastMove from "./ILastMove";
-import Piece from "./IPiece";
+import IMoveResult from "./IMoveResult";
 
 export default interface IBoard {
   table: String;
-  last_move: ILastMove;
+  last_move: IMoveResult;
 }

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.doMove = void 0;
-const fieldConversion_1 = require("./fieldConversion");
+const fieldConversion_1 = require("../utils/fieldConversion");
 const isCheckMate_1 = require("./isCheckMate");
 const { Chess } = require("chess.js");
 // Return the new table fen

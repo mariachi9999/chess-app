@@ -1,6 +1,4 @@
 import express from "express";
-import Game from "../../../repository/entities/game/game";
-import { GamesModel } from "../../models/gamesModel";
 import { findGame } from "../../services/findGameFromDb";
 import { restartGame } from "../../../repository/services/restartGame";
 import { GAME_RESTARTED } from "../../../repository/constants/message";

@@ -1,14 +1,14 @@
-import IGame from "../../domain/model/IGame";
-import ILastMove from "../../domain/model/ILastMove";
-import IMove from "../../domain/model/IMovePiece";
-import { fieldConversion } from "./fieldConversion";
+import ICheckStatus from "../../domain/services/ICheckStatus";
 import { isCheckMate } from "./isCheckMate";
 import { isDraw } from "./isDraw";
 
 const { Chess } = require("chess.js");
 
 // Return the new table fen
-export const checkStatus = (newBoard: { table: any; last_move: any }) => {
+export const checkStatus: ICheckStatus = (newBoard: {
+  table: any;
+  last_move: any;
+}) => {
   let status;
   let table = new Chess(newBoard.table);
 
