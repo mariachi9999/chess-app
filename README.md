@@ -44,6 +44,44 @@ Group test, this won´t go to production.
 
 ---
 
+# Project structure dynamic:
+
+domain
+. interfaces:
+. board
+. game
+. player
+. piece
+. position
+. constants:
+. types
+
+. services:
+. interfaces:
+. createGame
+. startGame (only whites)
+. restartGame
+. movePiece
+. madeJaque
+. capturePiece
+. quitGame
+
+. repository:
+. classes wich implements every interface
+. board
+. game
+. player
+. piece
+. position
+
+. persistence:
+. methods to store:
+. game
+. player
+
+. presentation
+. routes to execute each class of repo and store it.
+
 # To tun the app:
 
 **npm start**

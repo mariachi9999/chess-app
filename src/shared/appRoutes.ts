@@ -1,6 +1,10 @@
 import express from "express";
-import { appRouter } from "../contexts/playerManagement/presentation/playerRoutes";
+import { gameRouter } from "../contexts/gameManagement/presentation/gameRoutes";
+import { moveRouter } from "../contexts/gameManagement/presentation/moveRoutes";
+import { playerRouter } from "../contexts/gameManagement/presentation/playerRoutes";
 export const router = express.Router();
 
 // router endpoints
-router.use("/player", appRouter);
+router.use("/player", playerRouter);
+router.use("/game", gameRouter);
+router.use("/move", moveRouter);
