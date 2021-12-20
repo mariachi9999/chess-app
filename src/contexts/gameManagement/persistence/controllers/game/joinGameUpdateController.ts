@@ -1,5 +1,5 @@
 import express from "express";
-import Game from "../../../repository/game/game";
+import Game from "../../../repository/entities/game/game";
 import { GamesModel } from "../../models/gamesModel";
 
 // POST endpoint

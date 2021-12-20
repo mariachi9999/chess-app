@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addPlayerToDB = void 0;
-const player_1 = __importDefault(require("../../../repository/player/player"));
+const player_1 = __importDefault(require("../../../repository/entities/player/player"));
 const playerModel_1 = require("../../models/playerModel");
 // POST endpoint
 const addPlayerToDB = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

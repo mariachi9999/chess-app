@@ -1,10 +1,10 @@
 import express from "express";
-import Game from "../../../repository/game/game";
+import Game from "../../../repository/entities/game/game";
 import { GamesModel } from "../../models/gamesModel";
-import { findGame } from "../../utils/findGameFromDb";
-import { restartGame } from "../../../repository/utils/restartGame";
-import { GAME_RESTARTED } from "../../../repository/utils/constants/message";
-import { responseMessage } from "../../../repository/utils/responseMessage";
+import { findGame } from "../../services/findGameFromDb";
+import { restartGame } from "../../../repository/services/restartGame";
+import { GAME_RESTARTED } from "../../../repository/constants/message";
+import { responseMessage } from "../../../repository/services/responseMessage";
 
 // POST endpoint
 export const restartGameController = async (

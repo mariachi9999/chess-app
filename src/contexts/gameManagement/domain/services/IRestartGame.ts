@@ -1,4 +1,4 @@
-import Game from "../core/IGame";
+import Game from "../model/IGame";
 
 export default interface IRestartGame {
   (game: Game): void;

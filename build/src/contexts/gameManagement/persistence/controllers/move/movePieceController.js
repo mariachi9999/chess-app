@@ -10,17 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.movePiece = void 0;
-const isBlack_1 = require("../../../repository/utils/isBlack");
-const isFirstMovement_1 = require("../../../repository/utils/isFirstMovement");
-const isColorTurn_1 = require("../../../repository/utils/isColorTurn");
+const isBlack_1 = require("../../../repository/services/isBlack");
+const isFirstMovement_1 = require("../../../repository/services/isFirstMovement");
+const isColorTurn_1 = require("../../../repository/services/isColorTurn");
 const gamesModel_1 = require("../../models/gamesModel");
-const isGameOver_1 = require("../../../repository/utils/isGameOver");
-const doMove_1 = require("../../../repository/utils/doMove");
-const responseMessage_1 = require("../../../repository/utils/responseMessage");
+const isGameOver_1 = require("../../../repository/services/isGameOver");
+const doMove_1 = require("../../../repository/services/doMove");
+const responseMessage_1 = require("../../../repository/services/responseMessage");
 const message_1 = require("../../../repository/constants/message");
-const isLegalMove_1 = require("../../../repository/utils/isLegalMove");
-const updateGame_1 = require("../game/updateGame");
-const validMoveMessage_1 = require("../../../repository/utils/validMoveMessage");
+const isLegalMove_1 = require("../../../repository/services/isLegalMove");
+const updateGameInBb_1 = require("../../services/updateGameInBb");
+const validMoveMessage_1 = require("../../../repository/services/validMoveMessage");
+const checkStatus_1 = require("../../../repository/services/checkStatus");
 const { Chess } = require("chess.js");
 // POST endpoint
 const movePiece = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -28,6 +29,8 @@ const movePiece = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let game = yield gamesModel_1.GamesModel.findOne({ game_id: id });
     let table = new Chess(game.board.table);
     let newBoard;
+    let newStatus;
+    let message;
     // console.log(game);
     try {
         //Check if is already game over.
@@ -46,11 +49,12 @@ const movePiece = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (!(0, isLegalMove_1.isLegalMove)(game, req.body)) {
             return res.send((0, responseMessage_1.responseMessage)(message_1.INVALID_MOVE, game));
         }
-        // If all previous es ok, do the move!
+        // If all previous is ok, do the move!
         newBoard = (0, doMove_1.doMove)(game, move);
+        newStatus = (0, checkStatus_1.checkStatus)(newBoard);
+        message = (0, validMoveMessage_1.validMoveMessage)(newBoard);
         // Update Game in DB after the move and return Game
-        let gameUpdated = yield (0, updateGame_1.updateGameInDb)(id, newBoard);
-        let message = (0, validMoveMessage_1.validMoveMessage)(gameUpdated);
+        let gameUpdated = yield (0, updateGameInBb_1.updateGameInDb)(id, newBoard, newStatus);
         return res.send((0, responseMessage_1.responseMessage)(message, gameUpdated));
     }
     catch (error) {

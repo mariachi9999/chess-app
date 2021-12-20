@@ -1,6 +1,6 @@
-import Board from "../core/IBoard";
-import Game from "../core/IGame";
-import Player from "../core/IPlayer";
+import Board from "../model/IBoard";
+import Game from "../model/IGame";
+import Player from "../model/IPlayer";
 
 export default interface ICreateGame {
   createGame: (board: Board) => Game;

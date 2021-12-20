@@ -10,14 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.restartGameController = void 0;
-const findGame_1 = require("./findGame");
-const restartGame_1 = require("../../../repository/utils/restartGame");
+const findGameFromDb_1 = require("../../services/findGameFromDb");
+const restartGame_1 = require("../../../repository/services/restartGame");
 const message_1 = require("../../../repository/constants/message");
-const responseMessage_1 = require("../../../repository/utils/responseMessage");
+const responseMessage_1 = require("../../../repository/services/responseMessage");
 // POST endpoint
 const restartGameController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let game_id = req.body.game_id;
-    let gameToRestart = yield (0, findGame_1.findGame)(game_id);
+    let gameToRestart = yield (0, findGameFromDb_1.findGame)(game_id);
     let gameRestarted = yield (0, restartGame_1.restartGame)(gameToRestart);
     try {
         res.send((0, responseMessage_1.responseMessage)(message_1.GAME_RESTARTED, gameRestarted));

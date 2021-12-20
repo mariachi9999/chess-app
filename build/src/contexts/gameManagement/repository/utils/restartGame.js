@@ -16,7 +16,7 @@ exports.restartGame = void 0;
 const gamesModel_1 = require("../../persistence/models/gamesModel");
 const board_1 = __importDefault(require("../board/board"));
 const restartGame = (game) => __awaiter(void 0, void 0, void 0, function* () {
-    let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate({ game_id: game.game_id }, { board: new board_1.default() }, {
+    let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate({ game_id: game.game_id }, { board: new board_1.default(), status: "Ready to Start" }, {
         new: true,
     });
     return gameUpdated;
