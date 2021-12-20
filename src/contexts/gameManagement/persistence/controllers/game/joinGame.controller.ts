@@ -3,16 +3,17 @@ import Game from "../../../repository/entities/game/game";
 import { GamesModel } from "../../models/gamesModel";
 
 // POST endpoint
-export const addGameToDB = async (
+export const DbJoinGame = async (
   req: express.Request,
   res: express.Response
 ) => {
-  let player = req.body.username;
-  const game = new Game(player);
-  const gameToDb = new GamesModel(game);
+  let filter = { game_id: req.body.id };
+  let player2 = { player2: req.body.username };
   try {
-    await gameToDb.save();
-    res.send(gameToDb);
+    let gameUpdated = await GamesModel.findOneAndUpdate(filter, player2, {
+      new: true,
+    });
+    res.send(gameUpdated);
   } catch (error) {
     res.status(500).send(error);
   }

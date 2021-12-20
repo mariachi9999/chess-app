@@ -8,22 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DbFindGameAndRestart = void 0;
-const findGameFromDb_1 = require("../../services/findGameFromDb");
-const restartGame_1 = require("../../../repository/services/restartGame");
-const message_1 = require("../../../repository/constants/message");
-const responseMessage_1 = require("../../../repository/services/responseMessage");
+exports.DbCreatePlayer = void 0;
+const player_1 = __importDefault(require("../../../repository/entities/player/player"));
+const playerModel_1 = require("../../models/playerModel");
 // POST endpoint
-const DbFindGameAndRestart = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let game_id = req.body.game_id;
-    let gameToRestart = yield (0, findGameFromDb_1.findGame)(game_id);
-    let gameRestarted = yield (0, restartGame_1.restartGame)(gameToRestart);
+const DbCreatePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const player = new player_1.default(req.body.username);
+    const playerToDb = new playerModel_1.PlayerModel({ username: player.username });
     try {
-        res.send((0, responseMessage_1.responseMessage)(message_1.GAME_RESTARTED, gameRestarted));
+        yield playerToDb.save();
+        res.send(player);
     }
     catch (error) {
         res.status(500).send(error);
     }
 });
-exports.DbFindGameAndRestart = DbFindGameAndRestart;
+exports.DbCreatePlayer = DbCreatePlayer;

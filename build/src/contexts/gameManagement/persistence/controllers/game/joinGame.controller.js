@@ -9,21 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DbFindGameAndRestart = void 0;
-const findGameFromDb_1 = require("../../services/findGameFromDb");
-const restartGame_1 = require("../../../repository/services/restartGame");
-const message_1 = require("../../../repository/constants/message");
-const responseMessage_1 = require("../../../repository/services/responseMessage");
+exports.DbJoinGame = void 0;
+const gamesModel_1 = require("../../models/gamesModel");
 // POST endpoint
-const DbFindGameAndRestart = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let game_id = req.body.game_id;
-    let gameToRestart = yield (0, findGameFromDb_1.findGame)(game_id);
-    let gameRestarted = yield (0, restartGame_1.restartGame)(gameToRestart);
+const DbJoinGame = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let filter = { game_id: req.body.id };
+    let player2 = { player2: req.body.username };
     try {
-        res.send((0, responseMessage_1.responseMessage)(message_1.GAME_RESTARTED, gameRestarted));
+        let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate(filter, player2, {
+            new: true,
+        });
+        res.send(gameUpdated);
     }
     catch (error) {
         res.status(500).send(error);
     }
 });
-exports.DbFindGameAndRestart = DbFindGameAndRestart;
+exports.DbJoinGame = DbJoinGame;

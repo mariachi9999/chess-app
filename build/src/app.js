@@ -7,12 +7,12 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 // import * as dotenv from "dotenv";
 // dotenv.config();
-const appRoutes_1 = require("./shared/appRoutes");
+const app_router_1 = require("./contexts/gameManagement/presentation/app.router");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 const PORT = 8000;
 // THIS STRING IS THE LINK TO OUR MONGODB
-const url = "mongodb://localhost:27017/players";
+const url = "mongodb://localhost:27017/chess-db";
 // mongodb connection
 // to solve useNewUrlParser bug, must downgraded mongodb version to 5.13.8.
 // This property avoid the DeprecationWarning.
@@ -30,6 +30,6 @@ mongoose_1.default
         console.log("Connected successfully");
     });
 })
-    .then((result) => app.use(appRoutes_1.router))
+    .then((result) => app.use(app_router_1.router))
     .then((result) => app.listen(PORT, () => console.log(`app running on port ${PORT}`)))
     .catch((err) => console.log(err));

@@ -5,7 +5,7 @@ import { GAME_RESTARTED } from "../../../repository/constants/message";
 import { responseMessage } from "../../../repository/services/responseMessage";
 
 // POST endpoint
-export const restartGameController = async (
+export const DbFindGameAndRestart = async (
   req: express.Request,
   res: express.Response
 ) => {

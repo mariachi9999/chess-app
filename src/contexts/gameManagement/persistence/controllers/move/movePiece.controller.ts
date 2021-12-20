@@ -1,5 +1,4 @@
 import express from "express";
-import Game from "../../../repository/entities/game/game";
 import { isBlack } from "../../../repository/services/isBlack";
 import { isFirstMovement } from "../../../repository/services/isFirstMovement";
 import { isColorTurn } from "../../../repository/services/isColorTurn";
@@ -13,18 +12,16 @@ import {
   WHITE_MOVE_FIRST,
   NOT_YOUR_TURN,
   INVALID_MOVE,
-  VALID_MOVE,
 } from "../../../repository/constants/message";
 import { isLegalMove } from "../../../repository/services/isLegalMove";
 import { updateGameInDb } from "../../services/updateGameInBb";
 import IBoard from "../../../domain/model/IBoard";
-import { findGame } from "../../services/findGameFromDb";
 import { validMoveMessage } from "../../../repository/services/validMoveMessage";
 import { checkStatus } from "../../../repository/services/checkStatus";
 const { Chess } = require("chess.js");
 
 // POST endpoint
-export const movePiece = async (
+export const DbUpdateWithMove = async (
   req: express.Request,
   res: express.Response
 ) => {

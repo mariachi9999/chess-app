@@ -2,7 +2,7 @@ import express from "express";
 import { PlayerModel } from "../../models/playerModel";
 
 // GET endpoint
-export const getPlayersFromDB = async (
+export const DbReturnAllPlayers = async (
   req: express.Request,
   res: express.Response
 ) => {

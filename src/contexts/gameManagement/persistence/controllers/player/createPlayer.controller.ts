@@ -3,7 +3,7 @@ import Player from "../../../repository/entities/player/player";
 import { PlayerModel } from "../../models/playerModel";
 
 // POST endpoint
-export const addPlayerToDB = async (
+export const DbCreatePlayer = async (
   req: express.Request,
   res: express.Response
 ) => {

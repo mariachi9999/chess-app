@@ -2,7 +2,7 @@ import express, { Router } from "express";
 import mongoose from "mongoose";
 // import * as dotenv from "dotenv";
 // dotenv.config();
-import { router } from "./shared/appRoutes";
+import { router } from "./contexts/gameManagement/presentation/app.router";
 
 const app = express();
 app.use(express.json());
@@ -10,7 +10,7 @@ app.use(express.json());
 const PORT = 8000;
 
 // THIS STRING IS THE LINK TO OUR MONGODB
-const url = "mongodb://localhost:27017/players";
+const url = "mongodb://localhost:27017/chess-db";
 
 // mongodb connection
 // to solve useNewUrlParser bug, must downgraded mongodb version to 5.13.8.
