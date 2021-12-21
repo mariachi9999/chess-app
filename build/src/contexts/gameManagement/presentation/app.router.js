@@ -13,3 +13,6 @@ exports.router = express_1.default.Router();
 exports.router.use("/player", player_router_1.playerRouter);
 exports.router.use("/game", game_router_1.gameRouter);
 exports.router.use("/move", move_router_1.moveRouter);
+exports.router.use("*", function (req, res) {
+    res.sendStatus(404);
+});

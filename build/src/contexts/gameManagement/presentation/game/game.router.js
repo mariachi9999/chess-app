@@ -10,8 +10,7 @@ const joinGame_controller_1 = require("../../persistence/controllers/game/joinGa
 const findGame_controller_1 = require("../../persistence/controllers/game/findGame.controller");
 const restartGame_controller_1 = require("../../persistence/controllers/game/restartGame.controller");
 exports.gameRouter = express_1.default.Router();
-// Player endpoints
-exports.gameRouter.post("/create", createGame_controller_1.DbCreateGame);
+exports.gameRouter.post("/", createGame_controller_1.DbCreateGame);
 exports.gameRouter.put("/join", joinGame_controller_1.DbJoinGame);
-exports.gameRouter.get("/find", findGame_controller_1.DbFindGame);
+exports.gameRouter.get("/", findGame_controller_1.DbFindGame);
 exports.gameRouter.put("/restart", restartGame_controller_1.DbFindGameAndRestart);

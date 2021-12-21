@@ -21,5 +21,5 @@ export const fieldConversion = (string: String) => {
   let adjusted = string
     .split("")
     .filter((char: string) => notation.includes(char));
-  return adjusted.join("");
+  return adjusted.join("").slice(-2);
 };

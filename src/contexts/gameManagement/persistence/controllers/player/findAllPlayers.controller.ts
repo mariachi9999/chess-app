@@ -8,7 +8,7 @@ export const DbReturnAllPlayers = async (
 ) => {
   const players = await PlayerModel.find({});
   try {
-    res.send(players);
+    res.status(201).send(players);
   } catch (error) {
     res.status(500).send(error);
   }

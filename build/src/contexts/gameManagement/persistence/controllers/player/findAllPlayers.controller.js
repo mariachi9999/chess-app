@@ -15,7 +15,7 @@ const playerModel_1 = require("../../models/playerModel");
 const DbReturnAllPlayers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const players = yield playerModel_1.PlayerModel.find({});
     try {
-        res.send(players);
+        res.status(201).send(players);
     }
     catch (error) {
         res.status(500).send(error);

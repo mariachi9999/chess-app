@@ -21,7 +21,7 @@ const DbCreatePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function*
     const playerToDb = new playerModel_1.PlayerModel({ username: player.username });
     try {
         yield playerToDb.save();
-        res.send(player);
+        res.status(201).send(player);
     }
     catch (error) {
         res.status(500).send(error);

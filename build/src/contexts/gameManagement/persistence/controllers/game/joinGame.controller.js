@@ -19,7 +19,7 @@ const DbJoinGame = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate(filter, black, {
             new: true,
         });
-        res.send(gameUpdated);
+        res.status(201).send(gameUpdated);
     }
     catch (error) {
         res.status(500).send(error);

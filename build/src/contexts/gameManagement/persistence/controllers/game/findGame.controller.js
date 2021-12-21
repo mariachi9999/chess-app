@@ -16,7 +16,7 @@ const DbFindGame = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     let id = req.body.id;
     try {
         let game = yield gamesModel_1.GamesModel.findOne({ game_id: id });
-        res.send(game);
+        res.status(201).send(game);
     }
     catch (error) {
         res.status(500).send(error);

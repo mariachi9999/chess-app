@@ -41,7 +41,7 @@ const responseToMove = (req, res) => __awaiter(void 0, void 0, void 0, function*
         }
         // // If all previous is ok, do the move!
         let { message, gameUpdated } = yield (0, movePiece_1.movePiece)(game, move);
-        return res.send((0, responseMessage_1.responseMessage)(message, gameUpdated));
+        return res.status(201).send((0, responseMessage_1.responseMessage)(message, gameUpdated));
     }
     catch (error) {
         res.status(500).send(error);

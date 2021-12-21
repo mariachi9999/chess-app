@@ -13,7 +13,7 @@ export const DbFindGameAndRestart = async (
   let gameToRestart = await findGame(game_id);
   let gameRestarted = await restartGame(gameToRestart);
   try {
-    res.send(responseMessage(GAME_RESTARTED, gameRestarted));
+    res.status(201).send(responseMessage(GAME_RESTARTED, gameRestarted));
   } catch (error) {
     res.status(500).send(error);
   }

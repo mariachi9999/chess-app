@@ -20,7 +20,7 @@ const DbFindGameAndRestart = (req, res) => __awaiter(void 0, void 0, void 0, fun
     let gameToRestart = yield (0, findGameFromDb_1.findGame)(game_id);
     let gameRestarted = yield (0, restartGame_1.restartGame)(gameToRestart);
     try {
-        res.send((0, responseMessage_1.responseMessage)(message_1.GAME_RESTARTED, gameRestarted));
+        res.status(201).send((0, responseMessage_1.responseMessage)(message_1.GAME_RESTARTED, gameRestarted));
     }
     catch (error) {
         res.status(500).send(error);

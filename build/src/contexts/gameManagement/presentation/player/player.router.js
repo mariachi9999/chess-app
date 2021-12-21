@@ -8,8 +8,5 @@ const express_1 = __importDefault(require("express"));
 const createPlayer_controller_1 = require("../../persistence/controllers/player/createPlayer.controller");
 const findAllPlayers_controller_1 = require("../../persistence/controllers/player/findAllPlayers.controller");
 exports.playerRouter = express_1.default.Router();
-// Player endpoints
-// Add a player to database
-exports.playerRouter.post("/create", createPlayer_controller_1.DbCreatePlayer);
-// Get all players from database
-exports.playerRouter.get("/players", findAllPlayers_controller_1.DbReturnAllPlayers);
+exports.playerRouter.post("/", createPlayer_controller_1.DbCreatePlayer);
+exports.playerRouter.get("/", findAllPlayers_controller_1.DbReturnAllPlayers);

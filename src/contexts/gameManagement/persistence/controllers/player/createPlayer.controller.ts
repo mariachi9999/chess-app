@@ -11,7 +11,7 @@ export const DbCreatePlayer = async (
   const playerToDb = new PlayerModel({ username: player.username });
   try {
     await playerToDb.save();
-    res.send(player);
+    res.status(201).send(player);
   } catch (error) {
     res.status(500).send(error);
   }

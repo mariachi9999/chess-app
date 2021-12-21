@@ -22,7 +22,7 @@ const DbCreateGame = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const gameToDb = new gamesModel_1.GamesModel(game);
     try {
         yield gameToDb.save();
-        res.send(gameToDb);
+        res.status(201).send(gameToDb);
     }
     catch (error) {
         res.status(500).send(error);

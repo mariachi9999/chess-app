@@ -13,7 +13,7 @@ export const DbJoinGame = async (
     let gameUpdated = await GamesModel.findOneAndUpdate(filter, black, {
       new: true,
     });
-    res.send(gameUpdated);
+    res.status(201).send(gameUpdated);
   } catch (error) {
     res.status(500).send(error);
   }

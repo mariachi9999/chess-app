@@ -12,7 +12,7 @@ export const DbCreateGame = async (
   const gameToDb = new GamesModel(game);
   try {
     await gameToDb.save();
-    res.send(gameToDb);
+    res.status(201).send(gameToDb);
   } catch (error) {
     res.status(500).send(error);
   }

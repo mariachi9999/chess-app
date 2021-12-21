@@ -3,8 +3,5 @@ import { DbCreatePlayer } from "../../persistence/controllers/player/createPlaye
 import { DbReturnAllPlayers } from "../../persistence/controllers/player/findAllPlayers.controller";
 export const playerRouter = express.Router();
 
-// Player endpoints
-// Add a player to database
-playerRouter.post("/create", DbCreatePlayer);
-// Get all players from database
-playerRouter.get("/players", DbReturnAllPlayers);
+playerRouter.post("/", DbCreatePlayer);
+playerRouter.get("/", DbReturnAllPlayers);

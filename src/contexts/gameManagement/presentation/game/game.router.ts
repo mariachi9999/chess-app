@@ -5,8 +5,7 @@ import { DbFindGame } from "../../persistence/controllers/game/findGame.controll
 import { DbFindGameAndRestart } from "../../persistence/controllers/game/restartGame.controller";
 export const gameRouter = express.Router();
 
-// Player endpoints
-gameRouter.post("/create", DbCreateGame);
+gameRouter.post("/", DbCreateGame);
 gameRouter.put("/join", DbJoinGame);
-gameRouter.get("/find", DbFindGame);
+gameRouter.get("/", DbFindGame);
 gameRouter.put("/restart", DbFindGameAndRestart);

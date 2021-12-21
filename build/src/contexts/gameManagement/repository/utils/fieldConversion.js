@@ -23,6 +23,6 @@ const fieldConversion = (string) => {
     let adjusted = string
         .split("")
         .filter((char) => notation.includes(char));
-    return adjusted.join("");
+    return adjusted.join("").slice(-2);
 };
 exports.fieldConversion = fieldConversion;

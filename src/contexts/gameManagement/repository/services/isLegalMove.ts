@@ -15,5 +15,6 @@ export const isLegalMove: IIsLegalMove = (
   let legal_moves_adj = legal_moves.map((cell: string) =>
     fieldConversion(cell)
   );
+  console.log(legal_moves);
   return legal_moves_adj.includes(fieldConversion(move.move.to));
 };

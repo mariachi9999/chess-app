@@ -9,7 +9,7 @@ export const DbFindGame = async (
   let id = req.body.id;
   try {
     let game = await GamesModel.findOne({ game_id: id });
-    res.send(game);
+    res.status(201).send(game);
   } catch (error) {
     res.status(500).send(error);
   }

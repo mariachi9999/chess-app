@@ -8,3 +8,6 @@ export const router = express.Router();
 router.use("/player", playerRouter);
 router.use("/game", gameRouter);
 router.use("/move", moveRouter);
+router.use("*", function (req, res) {
+  res.sendStatus(404);
+});

@@ -41,7 +41,7 @@ export const responseToMove = async (
     }
     // // If all previous is ok, do the move!
     let { message, gameUpdated } = await movePiece(game, move);
-    return res.send(responseMessage(message, gameUpdated));
+    return res.status(201).send(responseMessage(message, gameUpdated));
   } catch (error) {
     res.status(500).send(error);
   }

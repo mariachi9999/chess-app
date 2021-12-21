@@ -8,6 +8,7 @@ const isLegalMove = (game, move) => {
     let table = new Chess(game.board.table);
     let legal_moves = table.moves({ square: (0, fieldConversion_1.fieldConversion)(move.move.from) });
     let legal_moves_adj = legal_moves.map((cell) => (0, fieldConversion_1.fieldConversion)(cell));
+    console.log(legal_moves);
     return legal_moves_adj.includes((0, fieldConversion_1.fieldConversion)(move.move.to));
 };
 exports.isLegalMove = isLegalMove;
