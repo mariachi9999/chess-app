@@ -2,6 +2,28 @@
 
 Project for Jala Foundation bootcamp.
 
+This api support:
+- player registration.
+- player create a game.
+- player join a game.
+- player move pieces.
+- player restart game.
+
+Storage in MongoDB.
+- Players.
+- Games.
+
+Some movement validation implemented:
+- white move first.
+- player must made a valid move (if not, the api ask for a valid move.
+- system notice if rival is in check.
+- system notice game´s status: Ready to Start - Playing - Jaque Mate - Draw.
+
+# API Documentation: [https://documenter.getpostman.com/view/15928294/UVRBmRHw]
+# Youtube Demo: [https://www.youtube.com/watch?v=FqdvORs32d8&t=1s]
+
+# FOLDER STRUCTURE
+
 # src
 
 Code which will go to production.
