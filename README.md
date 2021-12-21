@@ -11,78 +11,31 @@ Code which will go to production.
 This folder will contains one folder per Bounded Context.
 Each BC´s folder will have:
 
-1. **Domain**:
-   Contains the models of my business.
-2. **Services**:
-   Contains the domain events.
-3. **Repository**:
-   Contains the business logic, it won´t change if persisntency layer change.
-4. **Persistence**:
-   Contains the database relevant to the BC (mongodb, sql, etc); could be an entirely DB or a table of one main DB.
-5. **Presentation**:
-   Contains the REST API / endpoints relevant to the BC; could be an entirely server or a consolidate route of one main server.
+1.  **Domain**:
 
-## Shared
+    **Models**
+    Contains the models of my business.
 
-This folder contains common elements which will be used by many BC´s.
+    **Services**:
+    Contains the domain events.
 
----
+2.  **Repository**:
+    Contains the business logic, it won´t change if persistency layer change.
+
+3.  **Persistence**:
+    Contains the database relevant to the BC (mongodb); could be an entirely DB or a table of one main DB.
+
+4.  **Presentation**:
+    Contains the REST API / endpoints relevant to the BC; it´s an express server instance.
 
 # tests
 
 This folder replies src structure, to have a more clear localization of every component tested.
 
-## Contexts
-
-Replies the same structure of src contexts.
-
-## Shared
-
-Aceptation Test, E2E test, black box test.
-
-Group test, this won´t go to production.
-
----
-
-# Project structure dynamic:
-
-domain
-. interfaces:
-. board
-. game
-. player
-. piece
-. position
-. constants:
-. types
-
-. services:
-. interfaces:
-. createGame
-. startGame (only whites)
-. restartGame
-. movePiece
-. madeJaque
-. capturePiece
-. quitGame
-
-. repository:
-. classes wich implements every interface
-. board
-. game
-. player
-. piece
-. position
-
-. persistence:
-. methods to store:
-. game
-. player
-
-. presentation
-. routes to execute each class of repo and store it.
-
-# To tun the app:
+# To run the app:
 
 **npm start**
-.
+
+# To test the app:
+
+**npm run test**
