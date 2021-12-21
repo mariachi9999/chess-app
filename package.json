@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --watch app.js",
     "build": "tsc --project ./",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest -coverage"
   },
   "keywords": [],
   "author": "",
