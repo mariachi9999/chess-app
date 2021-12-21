@@ -19,8 +19,10 @@ Some movement validation implemented:
 - system notice if rival is in check.
 - system notice game´s status: Ready to Start - Playing - Jaque Mate - Draw.
 
-# API Documentation: [https://documenter.getpostman.com/view/15928294/UVRBmRHw]
-# Youtube Demo: [https://www.youtube.com/watch?v=FqdvORs32d8&t=1s]
+# API Documentation: 
+[https://documenter.getpostman.com/view/15928294/UVRBmRHw]
+# Youtube Demo: 
+[https://www.youtube.com/watch?v=FqdvORs32d8&t=1s]
 
 # FOLDER STRUCTURE
 
