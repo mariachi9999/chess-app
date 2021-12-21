@@ -52,9 +52,10 @@ Each BC´s folder will have:
 4.  **Presentation**:
     Contains the REST API / endpoints relevant to the BC; it´s an express server instance.
 
-# tests
+# Tests
 
 This folder replies src structure, to have a more clear localization of every component tested.
+I used Jest for unit testing.
 
 # To run the app:
 
