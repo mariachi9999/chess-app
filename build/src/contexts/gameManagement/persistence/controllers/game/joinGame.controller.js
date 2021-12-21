@@ -14,9 +14,9 @@ const gamesModel_1 = require("../../models/gamesModel");
 // POST endpoint
 const DbJoinGame = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let filter = { game_id: req.body.id };
-    let player2 = { player2: req.body.username };
+    let black = { black: req.body.username };
     try {
-        let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate(filter, player2, {
+        let gameUpdated = yield gamesModel_1.GamesModel.findOneAndUpdate(filter, black, {
             new: true,
         });
         res.send(gameUpdated);

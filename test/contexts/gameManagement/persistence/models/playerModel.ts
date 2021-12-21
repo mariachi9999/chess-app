@@ -7,7 +7,7 @@ const PlayerSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  games: {
+  score: {
     wins: { type: Number, default: 0 },
     draws: { type: Number, default: 0 },
     losses: { type: Number, default: 0 },

@@ -8,9 +8,9 @@ export const DbJoinGame = async (
   res: express.Response
 ) => {
   let filter = { game_id: req.body.id };
-  let player2 = { player2: req.body.username };
+  let black = { black: req.body.username };
   try {
-    let gameUpdated = await GamesModel.findOneAndUpdate(filter, player2, {
+    let gameUpdated = await GamesModel.findOneAndUpdate(filter, black, {
       new: true,
     });
     res.send(gameUpdated);

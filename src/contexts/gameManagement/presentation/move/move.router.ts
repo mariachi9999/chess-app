@@ -1,11 +1,6 @@
 import express from "express";
-import { DbUpdateWithMove } from "../../persistence/controllers/move/movePiece.controller";
+import { responseToMove } from "../../persistence/controllers/move/responseToMove.controller";
 
 export const moveRouter = express.Router();
 
-// Player endpoints
-// Add a player to database
-moveRouter.post("/", DbUpdateWithMove);
-
-// Get all players from database
-// gameRouter.get("/players", getPlayersFromDB);
+moveRouter.put("/", responseToMove);

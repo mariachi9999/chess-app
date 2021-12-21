@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DbUpdateWithMove = void 0;
+exports.responseToMove = void 0;
 const isBlack_1 = require("../../../repository/services/isBlack");
 const isFirstMovement_1 = require("../../../repository/services/isFirstMovement");
 const isColorTurn_1 = require("../../../repository/services/isColorTurn");
@@ -19,8 +19,7 @@ const responseMessage_1 = require("../../../repository/services/responseMessage"
 const message_1 = require("../../../repository/constants/message");
 const isLegalMove_1 = require("../../../repository/services/isLegalMove");
 const movePiece_1 = require("../../../repository/services/movePiece");
-// POST endpoint
-const DbUpdateWithMove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const responseToMove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id, move, color } = req.body;
     let game = yield gamesModel_1.GamesModel.findOne({ game_id: id });
     try {
@@ -48,4 +47,4 @@ const DbUpdateWithMove = (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.status(500).send(error);
     }
 });
-exports.DbUpdateWithMove = DbUpdateWithMove;
+exports.responseToMove = responseToMove;

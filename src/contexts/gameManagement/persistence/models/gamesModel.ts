@@ -8,8 +8,8 @@ const GamesSchema = new Schema({
     type: Number,
     default: id,
   },
-  player1: String,
-  player2: String,
+  white: String,
+  black: String,
   board: { table: String, last_move: {} },
   status: String,
 });

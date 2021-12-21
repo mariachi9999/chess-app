@@ -7,7 +7,6 @@ export const updateGameInDb = async (
   newBoard: IBoard,
   newStatus: String
 ) => {
-  console.log(newBoard);
   await GamesModel.updateOne(
     { game_id: id },
     { status: newStatus, board: newBoard }

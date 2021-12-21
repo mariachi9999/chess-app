@@ -13,7 +13,6 @@ exports.updateGameInDb = void 0;
 const gamesModel_1 = require("../models/gamesModel");
 const findGameFromDb_1 = require("./findGameFromDb");
 const updateGameInDb = (id, newBoard, newStatus) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(newBoard);
     yield gamesModel_1.GamesModel.updateOne({ game_id: id }, { status: newStatus, board: newBoard });
     let gameUpdated = yield (0, findGameFromDb_1.findGame)(id);
     return gameUpdated;
